@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sound95.lol/sitemap.xml

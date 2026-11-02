@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound95 - SoundCloud on your desktop, Windows 95 style</title>
+<meta name="description" content="Sound95 is a free Windows 95 style desktop app for SoundCloud, for Windows and Linux, with a visualizer and karaoke. Made by FO4AN.">
+<meta name="author" content="FO4AN">
+<meta name="theme-color" content="#000080">
+<link rel="canonical" href="https://sound95.lol/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sound95">
+<meta property="og:title" content="Sound95 - SoundCloud on your desktop, Windows 95 style">
+<meta property="og:description" content="A free desktop app for SoundCloud on Windows and Linux, with a visualizer and karaoke.">
+<meta property="og:url" content="https://sound95.lol/">
+<meta property="og:image" content="https://sound95.lol/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="img/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/win95.css">
+<link rel="stylesheet" href="css/site.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="button skip" href="#main">Skip to content</a>
+<div id="app">
+  <div id="desktop">
+    <div class="desk-icons">
+      <button class="desk-icon" id="desk-open"><img class="px32" src="img/icon-32.png" alt=""><span>Sound95</span></button>
+      <a class="desk-icon" href="download/"><img class="px32" src="img/icons/floppy.svg" alt=""><span>Download</span></a>
+      <a class="desk-icon" href="https://github.com/FO4AN/sound95" rel="noopener"><img class="px32" src="img/icons/folder.svg" alt=""><span>GitHub</span></a>
+    </div>
+
+    <div class="window" id="main-window">
+      <div class="titlebar">
+        <img class="titlebar-icon" src="img/icons/note.svg" alt="">
+        <span class="titlebar-text">Home - Sound95</span>
+        <span class="titlebar-buttons">
+          <button class="caption" id="win-min" aria-label="Minimize" hidden><img class="px9" src="img/icons/min.svg" alt=""></button>
+          <button class="caption" id="win-max" aria-label="Maximize" hidden><img class="px9" src="img/icons/max.svg" alt=""></button>
+          <button class="caption" id="win-close" aria-label="Close" hidden><img class="px9" src="img/icons/close.svg" alt=""></button>
+        </span>
+      </div>
+
+      <nav class="menubar" aria-label="Menu">
+        <div class="menu-wrap">
+          <button class="menu-title" aria-expanded="false" aria-controls="menu-file">File</button>
+          <div class="menu" id="menu-file" hidden>
+            <a class="menu-item" href="download/#windows"><img class="px" src="img/icons/monitor.svg" alt=""><span>Get for Windows</span></a>
+            <a class="menu-item" href="download/#linux"><img class="px" src="img/icons/penguin.svg" alt=""><span>Get for Linux</span></a>
+          </div>
+        </div>
+        <div class="menu-wrap">
+          <button class="menu-title" aria-expanded="false" aria-controls="menu-view">View</button>
+          <div class="menu" id="menu-view" hidden>
+            <a class="menu-item" href="./"><img class="px" src="img/icons/home.svg" alt=""><span>Home</span></a>
+            <a class="menu-item" href="download/"><img class="px" src="img/icons/floppy.svg" alt=""><span>Download</span></a>
+          </div>
+        </div>
+        <div class="menu-wrap">
+          <button class="menu-title" aria-expanded="false" aria-controls="menu-help">Help</button>
+          <div class="menu" id="menu-help" hidden>
+            <a class="menu-item" href="#faq"><img class="px" src="img/icons/search.svg" alt=""><span>FAQ</span></a>
+            <a class="menu-item" href="https://github.com/FO4AN/sound95/issues" rel="noopener"><img class="px" src="img/icons/warn.svg" alt=""><span>Report a Problem</span></a>
+            <div class="menu-sep"></div>
+            <button class="menu-item about-open"><img class="px" src="img/icons/info.svg" alt=""><span>About Sound95</span></button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="toolbar">
+        <button class="tool" id="nav-back" aria-label="Back" title="Back"><img class="px" src="img/icons/back.svg" alt=""></button>
+        <button class="tool" id="nav-forward" aria-label="Forward" title="Forward"><img class="px" src="img/icons/forward.svg" alt=""></button>
+        <a class="button tool" href="./" aria-label="Home" title="Home"><img class="px" src="img/icons/home.svg" alt=""></a>
+        <span class="tool-sep"></span>
+        <div class="address">
+          <span>Address:</span>
+          <span class="address-field sunken">https://sound95.lol/</span>
+        </div>
+        <span class="tool-sep"></span>
+        <a class="button account" href="https://github.com/FO4AN" rel="noopener" title="FO4AN on GitHub"><img class="px" src="img/icons/user.svg" alt=""><span>FO4AN</span></a>
+      </div>
+
+      <div class="workspace">
+        <nav class="sidebar sunken" aria-label="On this page">
+          <div class="tree-head"><img class="px" src="img/icons/note.svg" alt="">Sound95</div>
+          <a class="tree-item" href="#top"><img class="px" src="img/icons/home.svg" alt=""><span>Overview</span></a>
+          <a class="tree-item" href="#browser"><img class="px" src="img/icons/monitor.svg" alt=""><span>Out of the Browser</span></a>
+          <div class="tree-head"><img class="px" src="img/icons/folder.svg" alt="">Features</div>
+          <a class="tree-item" href="#visualizer"><img class="px" src="img/icons/bars.svg" alt=""><span>Visualizer</span></a>
+          <a class="tree-item" href="#karaoke"><img class="px" src="img/icons/mic.svg" alt=""><span>Karaoke</span></a>
+          <a class="tree-item" href="#why"><img class="px" src="img/icons/playlist.svg" alt=""><span>Why Sound95</span></a>
+          <div class="tree-head"><img class="px" src="img/icons/folder.svg" alt="">Help</div>
+          <a class="tree-item" href="#faq"><img class="px" src="img/icons/search.svg" alt=""><span>FAQ</span></a>
+        </nav>
+
+        <div class="pane">
+          <nav class="tabs" aria-label="Pages">
+            <a class="tab selected" href="./" aria-current="page">Home</a>
+            <a class="tab" href="download/">Download</a>
+          </nav>
+          <main class="content sunken" id="main" tabindex="0">
+            <section class="hero" id="top">
+              <span class="badge tag">Free for Windows and Linux</span>
+              <h1><span>SoundCloud on your desktop.</span> <span>Built like it's 1995.</span></h1>
+              <p class="hero-lead">Sound95 takes SoundCloud out of the browser tab and into a real desktop app for Windows and Linux. Log in and your likes, playlists and follows are already there.</p>
+              <p class="hero-version">The latest version is Sound95 <span data-release="version">v0.4.0</span><span data-release="date"></span></p>
+              <div class="hero-actions">
+                <a class="button big default" id="get-sound95" href="download/"><img class="px" src="img/icons/floppy.svg" alt=""><span id="get-label">Download</span></a>
+                <a class="button big" href="https://github.com/FO4AN/sound95" rel="noopener">View on GitHub</a>
+              </div>
+              <div class="hero-shot">
+                <img src="img/shot-playing.webp" srcset="img/shot-playing-960.webp 960w, img/shot-playing.webp 1920w" sizes="(max-width: 900px) 100vw, 1012px" width="1920" height="1080" alt="The Sound95 window: a library tree on the left, a list of tracks in the middle, Up Next on the right and the player bar along the bottom." fetchpriority="high">
+              </div>
+            </section>
+
+            <section class="band after-hero" id="browser">
+              <div class="inner">
+                <div class="split">
+                  <div class="head">
+                    <span class="badge tag">OUT OF THE BROWSER</span>
+                    <h2>Close the tab. Keep the music.</h2>
+                  </div>
+                  <p>SoundCloud usually lives in a browser tab, somewhere behind everything else. Sound95 gives it a window of its own, a button on your taskbar and a player bar that stays put while you browse. It plays through SoundCloud's own player, so it's the same music and the same account.</p>
+                </div>
+                <div class="trio">
+                  <div class="group">
+                    <img class="px32" src="img/icons/folder.svg" alt="">
+                    <h3>Your whole library</h3>
+                    <p>Likes, playlists and follows live on SoundCloud, so they match the website and your phone.</p>
+                  </div>
+                  <div class="group">
+                    <img class="px32" src="img/icons/queue.svg" alt="">
+                    <h3>Everything in view</h3>
+                    <p>Your library on the left, Up Next on the right and the player along the bottom, on every page.</p>
+                  </div>
+                  <div class="group">
+                    <img class="px32" src="img/icons/monitor.svg" alt="">
+                    <h3>Any window size</h3>
+                    <p>The layout folds down to fit a small window or a tiling tile, so it works as a corner player too.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="band face" id="visualizer">
+              <div class="inner demo-split">
+                <div class="demo-text">
+                  <span class="badge tag">VISUALIZER</span>
+                  <h2>Watch what you're hearing.</h2>
+                  <p>Spectrum, Oscilloscope, Mystify and Starfield, driven by the audio that's actually playing. This window runs the app's drawing code, listening to a small demo tune your browser makes itself. Press Play.</p>
+                </div>
+                <div class="window demo">
+                  <div class="titlebar">
+                    <img class="titlebar-icon" src="img/icons/bars.svg" alt="">
+                    <span class="titlebar-text">Visualizer</span>
+                  </div>
+                  <div class="demo-modes" role="group" aria-label="Visualizer mode">
+                    <button data-mode="bars" aria-pressed="true">Spectrum</button>
+                    <button data-mode="scope" aria-pressed="false">Oscilloscope</button>
+                    <button data-mode="mystify" aria-pressed="false">Mystify</button>
+                    <button data-mode="stars" aria-pressed="false">Starfield</button>
+                  </div>
+                  <div class="demo-body"><canvas class="viz-canvas" id="viz-canvas" role="img" aria-label="Animated visualizer that follows the demo tune"></canvas></div>
+                  <div class="statusbar">
+                    <span class="status-cell grow" id="viz-status">Spectrum - Waiting for music</span>
+                    <button class="demo-play">Play</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="band" id="karaoke">
+              <div class="inner demo-split flip">
+                <div class="window demo">
+                  <div class="titlebar">
+                    <img class="titlebar-icon" src="img/icons/mic.svg" alt="">
+                    <span class="titlebar-text">Karaoke</span>
+                  </div>
+                  <div class="demo-body">
+                    <div class="k-stage">
+                      <div class="k-lines" id="k-lines"></div>
+                      <canvas class="k-strip" id="k-strip" aria-hidden="true"></canvas>
+                    </div>
+                  </div>
+                  <div class="statusbar">
+                    <span class="status-cell grow" id="k-status">Waiting for music</span>
+                    <button class="demo-play">Play</button>
+                  </div>
+                </div>
+                <div class="demo-text">
+                  <span class="badge tag">KARAOKE</span>
+                  <h2>Sing over anything.</h2>
+                  <p>Sound95 finds lyrics for whatever plays and wipes through them in time. If a song only has plain text, the timing is a guess, and Tap to Sync lets you fix it by pressing Space as each line starts. Paste Lyrics covers the songs nobody has published words for.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="band face" id="why">
+              <div class="inner">
+                <div class="head">
+                  <span class="badge tag">WHY SOUND95?</span>
+                  <h2>The details.</h2>
+                </div>
+                <div class="list-frame">
+                  <table class="list">
+                    <thead><tr><th colspan="2" scope="col">Name</th><th scope="col">What it does</th></tr></thead>
+                    <tbody>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/note.svg" alt=""></td><td class="name-cell">Track pages</td><td>Click a track's name or picture for its waveform, details, lyrics and related tracks, all inside the app.</td></tr>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/user.svg" alt=""></td><td class="name-cell">SoundCloud log in</td><td>You sign in on SoundCloud's own page, in a window of its own. There's nothing else to set up.</td></tr>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/speaker.svg" alt=""></td><td class="name-cell">Streams only</td><td>Music plays from SoundCloud. Sound95 stores no audio, credits uploaders and links back.</td></tr>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/clock.svg" alt=""></td><td class="name-cell">Signed updates</td><td>Checks for a new version at startup and every six hours. An update that doesn't match the key built into the app is refused.</td></tr>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/keys.svg" alt=""></td><td class="name-cell">No admin rights</td><td>The Windows installer and the Linux install script both install for your user only.</td></tr>
+                      <tr><td class="icon-cell"><img class="px" src="img/icons/monitor.svg" alt=""></td><td class="name-cell">Native app</td><td>Built with Tauri and Rust. It uses your system's web view rather than bundling a whole browser.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section class="band" id="faq">
+              <div class="inner narrow">
+                <div class="head">
+                  <span class="badge tag">FAQ</span>
+                  <h2>Questions.</h2>
+                </div>
+                <div class="faq">
+                  <details>
+                    <summary>Is Sound95 made by SoundCloud?</summary>
+                    <p>No. Sound95 is an independent project by FO4AN. It isn't affiliated with or endorsed by SoundCloud.</p>
+                  </details>
+                  <details>
+                    <summary>Is it free?</summary>
+                    <p>Yes. Sound95 is free to download and use.</p>
+                  </details>
+                  <details>
+                    <summary>Do I need a SoundCloud account?</summary>
+                    <p>Yes. Click Log In and sign in on SoundCloud's own page, in the window that opens. Sound95 has no account of its own.</p>
+                  </details>
+                  <details>
+                    <summary>Why does Windows warn me about the installer?</summary>
+                    <p>The installer isn't code signed yet, so SmartScreen may warn you. Choose More info, then Run anyway.</p>
+                  </details>
+                  <details>
+                    <summary>Can I download music or listen offline?</summary>
+                    <p>No. Sound95 streams from SoundCloud and keeps no copies of the audio.</p>
+                  </details>
+                  <details>
+                    <summary>What about macOS or my phone?</summary>
+                    <p>Sound95 runs on Windows 10 and 11 (64-bit) and x86-64 Linux. There's no macOS or phone version right now.</p>
+                  </details>
+                  <details>
+                    <summary>Could it stop working?</summary>
+                    <p>It could. Sound95 uses SoundCloud's website log in and website API, which SoundCloud doesn't officially support, so a change on their side could break it until an update lands.</p>
+                  </details>
+                </div>
+              </div>
+            </section>
+
+            <section class="band navy">
+              <div class="inner narrow">
+                <h2>Ready when you are.</h2>
+                <div class="cta-actions">
+                  <a class="button big default" href="download/"><img class="px" src="img/icons/floppy.svg" alt="">Download Sound95</a>
+                </div>
+              </div>
+            </section>
+
+            <footer class="site-foot">
+              <div class="inner">
+                <span>Sound95 by <a href="https://github.com/FO4AN" rel="noopener">FO4AN</a></span>
+                <span>Not affiliated with or endorsed by SoundCloud.</span>
+              </div>
+            </footer>
+          </main>
+        </div>
+      </div>
+
+      <div class="playerbar">
+        <div class="np">
+          <span class="np-art sunken"><img class="px32" src="img/icons/note.svg" alt=""></span>
+          <div class="np-text">
+            <span class="np-title">Modem Song</span>
+            <span class="np-artist">Demo tune, made in your browser</span>
+          </div>
+        </div>
+        <div class="transport">
+          <div class="transport-buttons">
+            <button class="tool" id="tp-prev" aria-label="Back to the start" title="Back to the start"><img class="px" src="img/icons/prev.svg" alt=""></button>
+            <button class="tool tool-play" id="tp-play" aria-label="Play" title="Play"><img class="px" src="img/icons/play.svg" alt=""></button>
+          </div>
+          <div class="seek-row">
+            <span class="time" id="time-now">0:00</span>
+            <input type="range" class="slider" id="seek" min="0" max="1000" value="0" step="1" aria-label="Seek">
+            <span class="time" id="time-total">0:00</span>
+          </div>
+        </div>
+        <div class="np-right">
+          <canvas class="mini-viz" id="mini-viz" aria-hidden="true"></canvas>
+          <img class="px" src="img/icons/speaker.svg" alt="">
+          <input type="range" class="slider" id="volume" min="0" max="100" value="80" aria-label="Volume">
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <span class="status-cell grow" id="status" role="status">Ready</span>
+        <span class="status-cell">Made by FO4AN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <button class="start" id="start-button" aria-expanded="false" aria-controls="start-menu"><img class="px" src="img/icons/note.svg" alt="">Start</button>
+    <div class="menu start-menu" id="start-menu" hidden>
+      <div class="start-banner" aria-hidden="true"><b>Sound</b>95</div>
+      <div>
+        <a class="menu-item" href="./"><img class="px" src="img/icons/home.svg" alt=""><span>Home</span></a>
+        <a class="menu-item" href="download/"><img class="px" src="img/icons/floppy.svg" alt=""><span>Download</span></a>
+        <a class="menu-item" href="https://github.com/FO4AN/sound95" rel="noopener"><img class="px" src="img/icons/folder.svg" alt=""><span>GitHub</span></a>
+        <div class="menu-sep"></div>
+        <button class="menu-item about-open"><img class="px" src="img/icons/info.svg" alt=""><span>About Sound95</span></button>
+      </div>
+    </div>
+    <span class="task-sep"></span>
+    <button class="task pressed" id="task-button" aria-pressed="true"><img class="px" src="img/icons/note.svg" alt=""><span>Sound95</span></button>
+    <span class="tray sunken-thin">
+      <img class="px" src="img/icons/speaker.svg" alt="">
+      <span id="clock"></span>
+    </span>
+  </div>
+</div>
+
+<dialog class="window dialog" id="about" aria-labelledby="about-title">
+  <div class="titlebar">
+    <span class="titlebar-text" id="about-title">About Sound95</span>
+    <span class="titlebar-buttons"><button class="caption dialog-close about-close" aria-label="Close"><img class="px9" src="img/icons/close.svg" alt=""></button></span>
+  </div>
+  <div class="dialog-body">
+    <div class="dialog-row">
+      <img class="px32" src="img/icon-32.png" alt="">
+      <div>
+        <p><b>Sound95</b> <span data-release="version">v0.4.0</span></p>
+        <p>A Windows 95 style desktop app for SoundCloud.</p>
+        <p>Made by <a href="https://github.com/FO4AN" rel="noopener">FO4AN</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="dialog-buttons"><button class="default about-close">OK</button></div>
+</dialog>
+</body>
+</html>
